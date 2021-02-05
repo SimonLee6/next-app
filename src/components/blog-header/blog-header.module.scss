@@ -1,0 +1,60 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixin.scss";
+
+.blog-header--wrap {
+  width: 100%;
+  background: $bg-head;
+  .blog-header {
+    padding: 0 10px;
+    margin: 0 auto;
+    width: 100%;
+    background: $bg-head;
+    display: flex;
+    .logo-wrap {
+      height: 100%;
+      // line-height: 50px;
+      .icon-logo {
+        display: inline-block;
+        @include wh(50px, 50px);
+        @include bg-max($blog-avatar);
+        border-radius: 50%;
+      }
+    }
+    .tabs-list {
+      height: 100%;
+      display: flex;
+      .tabs-item {
+        cursor: pointer;
+        @include wh(auto, 100%);
+        margin: 0 15px;
+        font-size: 15px;
+        &:hover {
+          @extend .tabs-item__active;
+        }
+      }
+      .tabs-item__active {
+        position: relative;
+        @include font-style(15px, $theme-color, normal);
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0; left: 0;
+          @include wh(100%, 3px);
+          border-top-left-radius: 80px;
+          border-top-right-radius: 80px;
+          background-color: $theme-color;
+          animation: border-transition .2s linear;
+        }
+      }
+    }
+  }
+}
+
+@keyframes border-transition {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

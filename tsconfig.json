@@ -2,9 +2,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "src/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"],
+      "@pages/*": ["src/pages/*"],
+      "@util/*": ["src/utils/*"],
+      "@com/*": ["src/components/*"],
+      "@layout/*": ["src/layout/*"],
+      "@api/*": ["src/api/*"],
+      "@interface/*": ["src/interfaces/*"],
     },
     "target": "es5",
     "module": "esnext",

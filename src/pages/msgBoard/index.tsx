@@ -3,12 +3,12 @@ import { Layout } from "antd";
 import router from "next/router";
 import BlogContainer from "@layout/blog-container/blog-container";
 
-export default class Home extends Component {
+export default class BlogMsgBoard extends Component {
 
   render() {
 
     return (
-      "主页"
+      "留言板"
     )
   }
 }

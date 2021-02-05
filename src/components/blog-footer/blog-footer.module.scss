@@ -1,0 +1,15 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixin.scss";
+
+$foot-h: 280px;
+$foot-con-h: 160px;
+$line-color: rgba(255, 255, 255, 0.25);
+$font-orgen: #f08047;
+
+.blog-footer {
+  @include wh(100%, $foot-h);
+  box-sizing: border-box;
+  padding: 10px 150px;
+  background: #fff;
+  @include font-style(14px, #333, normal);
+}
