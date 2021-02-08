@@ -3,25 +3,59 @@ import { Layout } from "antd";
 import router from "next/router";
 
 import ArticleApi from "@api/article.api";
+import { Button } from 'antd';
 
-class BlogArticle extends Component {
-
+type ArticleData = {
+  data: any[];
+  pagingInfo: {
+    page: number;
+    total: number;
+    size: number
+  };
+}
+interface Props {
+  articleData: ArticleData
+}
+interface State {
+  page: string
+}
+class BlogArticle extends Component<Props, State> {
+  constructor (props: Props) {
+    super(props)
+    this.state = {
+      page: "列表"
+    }
+  }
   async componentDidMount() {
-    // let res = await ArticleApi.getArticleList()
-    // console.log(res)
-    console.log(this.props)
+    console.log(this)
+  }
+  handlerClick = () => {
+    this.setState({ page: "新列表"})
   }
   render() {
+    const articleList = this.props.articleData.data
+    const pagingInfo = this.props.articleData.pagingInfo
     return (
-      "文章"
+      <div className="article-wrap">
+        <ul>
+          {
+            articleList.map(ele => (
+              <li key={ele.id}>{ ele.title }</li>
+            ))
+          }
+        </ul>
+        <Button onClick={this.handlerClick}>点击</Button>
+      </div>
     )
   }
 }
-export async function getServerSideProps() {
+export async function getStaticProps() {
   let res = await ArticleApi.getArticleList()
-  const data = res.data.data
+  const articleData = res.data.data;
   return {
-    props: { data }
+    props: { 
+      articleData
+    }
   }
 }
 

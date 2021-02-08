@@ -13,6 +13,7 @@ const proxyTable = {
   }
 }
 
+
 app.prepare().then(() => {
   const server = express()
   Object.keys(proxyTable).forEach(key => {
