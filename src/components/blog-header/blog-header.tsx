@@ -5,17 +5,17 @@ import { useRouter, NextRouter } from "next/router"
 import { TabItem } from "./interfaces"
 
 const tabs: TabItem[] = [
-  { name: "首页", link: "/", value: "home" },
-  { name: "个人文章", link: "/article", value: "article" },
-  { name: "技术资源", link: "/resource", value: "resource" },
-  { name: "友人帐", link: "/friends", value: "friends" },
-  { name: "留言板", link: "/msgBoard", value: "msgBoard" },
+  // { name: "首页", link: "/", value: "home" },
+  // { name: "个人文章", link: "/article", value: "article" },
+  // { name: "技术资源", link: "/resource", value: "resource" },
+  // { name: "友人帐", link: "/friends", value: "friends" },
+  // { name: "留言板", link: "/msgBoard", value: "msgBoard" },
 ]
 
 const computedTabClass = (ele: TabItem, router: NextRouter) => `${style["tabs-item"]} ${
   ele.link === router.route
     ? style["tabs-item__active"] 
-    : "" 
+    : ""  
   }`
 
 export default function BlogHeader () {

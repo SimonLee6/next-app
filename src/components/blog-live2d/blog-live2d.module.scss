@@ -1,0 +1,8 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixin.scss";
+.live2d-wrap {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  @include wh(280px, 250px);
+}
