@@ -3,3 +3,7 @@ export interface TabItem {
   link: string;
   value: string;
 }
+
+export type BlogHeaderState = {
+  headActive: boolean
+}

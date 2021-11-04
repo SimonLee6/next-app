@@ -1,5 +1,5 @@
-@import "../../sass/variables.scss";
-@import "../../sass/mixin.scss";
+@import "../../scss/variables.scss";
+@import "../../scss/mixin.scss";
 
 $foot-h: 280px;
 $foot-con-h: 160px;
@@ -11,5 +11,5 @@ $font-orgen: #f08047;
   box-sizing: border-box;
   padding: 10px 150px;
   background: #fff;
-  @include font-style(14px, #333, normal);
+  @include font(14px, #333, normal);
 }

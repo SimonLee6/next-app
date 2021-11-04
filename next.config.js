@@ -25,6 +25,8 @@ module.exports = {
       "@layout": path.resolve(__dirname, "./src/layout"),
       "@interface": path.resolve(__dirname, "./src/interfaces"),
       "@api": path.resolve(__dirname, "./src/api"),
+      "@common": path.resolve(__dirname, "./src/common"),
+      "@styledComponents": path.resolve(__dirname, "./src/layout/styled-components/base.tsx"),
     }
 
     return config

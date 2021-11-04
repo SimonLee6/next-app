@@ -11,6 +11,9 @@
         "libraryName": "antd"
         // "style":"css"  // webpack语法报错 引入css
       }
+    ],
+    [
+      "styled-components",{ "ssr":true } 
     ]
   ]
 }

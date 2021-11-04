@@ -1,49 +1,73 @@
-@import "../../sass/variables.scss";
-@import "../../sass/mixin.scss";
+@import "../../scss/variables.scss";
+@import "../../scss/mixin.scss";
 
 .blog-header--wrap {
+  position: fixed;
+  top: 0; left: 0;
   width: 100%;
-  background: $bg-head;
+  @include wh(100%, $blog-header-h);
+  background: transparent;
+  z-index: 100;
+  opacity: .8;
+  box-shadow: 0 1px 4px rgb(18 38 63 / .1);
   .blog-header {
-    padding: 0 10px;
-    margin: 0 auto;
     width: 100%;
-    background: $bg-head;
-    display: flex;
+    padding: 0 10px;
+    // margin: 0 auto;
+    @include wh-max;
+    background: transparent;
+    // display: flex;
+    &.header-active {
+      box-shadow: 0 1px 1px rgb(18 38 63 / 5%);
+      background: rgba(255, 255, 255, 0.9);
+      .tabs-list {
+        .tabs-item {
+          color: rgba(0,0,0,.9);
+        }
+      }
+      
+    }
     .logo-wrap {
       height: 100%;
-      // line-height: 50px;
       .icon-logo {
         display: inline-block;
-        @include wh(50px, 50px);
-        @include bg-max($blog-avatar);
-        border-radius: 50%;
+        @include wh(300px, 70px);
+        // @include bg-max($blog-avatar);
+        // border-radius: 50%;
       }
     }
     .tabs-list {
+      float: right;
       height: 100%;
       display: flex;
+      background: transparent;
       .tabs-item {
+        position: relative;
         cursor: pointer;
         @include wh(auto, 100%);
+        line-height: $blog-header-h;
+        @include font(18px, #fff, 500);
         margin: 0 15px;
-        font-size: 15px;
+        background: transparent;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0; left: 0;
+          @include wh(0, 4px);
+          border-top-left-radius: 80px;
+          border-top-right-radius: 80px;
+          background-color: $theme-color;
+          transition: width .2s linear;
+        }
         &:hover {
           @extend .tabs-item__active;
         }
       }
       .tabs-item__active {
-        position: relative;
-        @include font-style(15px, $theme-color, normal);
-        &:after {
-          content: "";
-          position: absolute;
-          bottom: 0; left: 0;
-          @include wh(100%, 3px);
-          border-top-left-radius: 80px;
-          border-top-right-radius: 80px;
-          background-color: $theme-color;
-          animation: border-transition .2s linear;
+        @include font(18px, $theme-color, 500);
+        &::after {
+          display: block;
+          @include wh(100%, 4px);
         }
       }
     }

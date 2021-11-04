@@ -9,7 +9,7 @@ const handle = app.getRequestHandler()
 
 const proxyTable = {
   "/api": {
-    target: "localhost:3002"
+    target: "http://localhost:3002"
   }
 }
 

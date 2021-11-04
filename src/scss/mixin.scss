@@ -1,0 +1,65 @@
+@mixin wh($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin wh-max() {
+  width: 100%;
+  height: 100%;
+}
+@mixin line-height($h) {
+	height: $h;
+	line-height: $h;
+}
+@mixin clearfix() {
+	*zoom: 1;
+  &:after {
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+	}
+}
+@mixin bg-max($url) {
+  background-image: $url;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+@mixin center() {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin font($size, $color, $weight: normal) {
+  color: $color;
+  font: {
+    weight: $weight;
+    size: $size;
+  }
+}
+@mixin flex {
+	display: flex;
+}
+@mixin flex-center {
+	@include flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin text-split($width: 5px, $height: 20px, $color: #273549) {
+	&:before {
+    content: "";
+		display: inline-block;
+    height: $height;
+    width: $width;
+    background-color: $color;
+    border-radius: 5px;
+		transform: translate(-5px, 3px);
+	}
+}
+
+@mixin text-ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

@@ -50,13 +50,31 @@ class BlogArticle extends Component<Props, State> {
   }
 }
 export async function getStaticProps() {
-  let res = await ArticleApi.getArticleList()
-  const articleData = res.data.data;
-  return {
-    props: { 
-      articleData
+  const defaultData: ArticleData = {
+    data: [],
+    pagingInfo: {
+      size: 10,
+      total: 0,
+      page: 1
     }
   }
+  try {
+    let res = await ArticleApi.getArticleList()
+    const articleData = res.data.data || defaultData;
+    return {
+      props: { 
+        articleData
+      }
+    }
+  } catch (error) {
+    return {
+      props: { 
+        articleData: defaultData
+      }
+    }
+  }
+  
+  
 }
 
 export default BlogArticle;

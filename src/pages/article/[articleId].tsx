@@ -2,7 +2,10 @@
 import React, { Component } from "react";
 import { withRouter } from "next/router"
 
-class ArticleDetail extends Component<any, any> {
+interface State {}
+interface Props {}
+
+class ArticleDetail extends Component<any, State> {
 
 
   render () {

@@ -7,7 +7,7 @@ const BlogContainer = (props: any) => {
   return(
     <Layout className="blog-container">
       <BlogHeader></BlogHeader>
-      <Layout.Content>{ props.children }</Layout.Content>
+      <Layout.Content className="blog-content">{ props.children }</Layout.Content>
       <BlogFooter></BlogFooter>
     </Layout>
   )

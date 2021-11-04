@@ -1,0 +1,44 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixin.scss";
+
+.scroll-wrap {
+  position: fixed;
+  top: 0; right: 30px;
+  @include wh(70px, 900px);
+  @include bg-max($scroll-line);
+  transition: all 1s ease;
+  animation: infinityMove 2s linear infinite;
+}
+
+.scroll-out {
+  transform: translateY(-900px);
+}
+
+.scroll-in {
+  transform: translateY(0);
+}
+
+.scroll-btn {
+  position: fixed;
+  top: 800px;
+  @include wh(70px, 90px);
+  cursor: pointer;
+}
+
+@keyframes infinityMove {
+  from {
+    top: 0;
+  }
+  to {
+    top: 2px;
+  }
+}
+
+.scroll-line-wrap {
+  position: fixed;
+  top: 0; left: 0;
+  @include wh(100%, 3px);
+  background: $theme-color;
+  z-index:100;
+  transition: width 1s ease;
+}

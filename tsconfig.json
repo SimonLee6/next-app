@@ -9,6 +9,8 @@
       "@layout/*": ["src/layout/*"],
       "@api/*": ["src/api/*"],
       "@interface/*": ["src/interfaces/*"],
+      "@common/*": ["src/common/*"],
+      "@styledComponents": ["src/layout/styled-components/base.tsx"],
     },
     "target": "es5",
     "module": "esnext",
