@@ -2,6 +2,7 @@
 @import "../../scss/mixin.scss";
 
 .scroll-wrap {
+  z-index: 1;
   position: fixed;
   top: 0; right: 30px;
   @include wh(70px, 900px);

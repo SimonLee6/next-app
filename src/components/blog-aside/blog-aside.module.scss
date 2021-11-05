@@ -1,0 +1,40 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixin.scss";
+
+.asideWrap {
+  @include wh(100%, auto);
+  
+  .blogInfo {
+    @include wh(100%, 243px);
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    .blogInfoTop {
+      position: relative;
+      .imgBg {
+        border-top-left-radius: 4px; 
+        border-top-right-radius: 4px; 
+        @include wh(100%, 120px);
+        @include bg-max($aside-title-bg);
+      }
+      .avatar {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include wh(68px, 68px);
+        @include bg-max($avatar-bg);
+        border-radius: 50%;
+      }
+      .name {
+        padding: 33px 10px;
+        width: 100%;
+        text-align: center;
+        @include font(16px, #000, bold);
+        
+      }
+    }
+    .blogInfoBottom {
+
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import style from "./blog-header.module.scss"
 import { Layout } from "antd";
-import { useRouter, NextRouter, withRouter } from "next/router"
+import { NextRouter, withRouter } from "next/router"
 import { TabItem, BlogHeaderState } from "./interfaces"
 import { ClassRouterComProps } from "@interface/interfaces"
 
