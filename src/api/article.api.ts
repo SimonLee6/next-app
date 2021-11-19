@@ -10,6 +10,14 @@ const apiConfig: ApiConfigItem[] = [
 
 const apiServiceObj = {} as ApiServiceObj;
 
+export const getBlogDetail = (blogId: any) => {
+  return axios({
+    url: `${baseUrl}/blogPage/getBlogDetail/${blogId}`,
+    method: "get"
+  })
+}
+
+
 apiConfig.forEach(ele => {
   apiServiceObj[ele.name] = function(params) {
     return axios({

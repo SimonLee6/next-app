@@ -3,8 +3,9 @@
 
 .asideWrap {
   @include wh(100%, auto);
-  
+  padding: 0 15px;
   .blogInfo {
+    position: relative;
     @include wh(100%, 243px);
     background: #fff;
     border: 1px solid #e9ecef;
@@ -24,17 +25,30 @@
         @include wh(68px, 68px);
         @include bg-max($avatar-bg);
         border-radius: 50%;
+        z-index: 10;
       }
       .name {
-        padding: 33px 10px;
+        padding: 33px 10px 15px 10px;
         width: 100%;
         text-align: center;
         @include font(16px, #000, bold);
-        
+        border-bottom: 1px solid #efefef;
       }
     }
+    .infoShadow {
+      position: absolute;
+      top: 80px; left: 0;
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(to top, #fff, transparent);
+    }
     .blogInfoBottom {
-
+      text-align: center;
+      padding: 10px 0;
+      .infoItem {
+        @include font(15px, $theme-color, 500);
+        width: 33%;
+      }
     }
   }
 }

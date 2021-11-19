@@ -63,6 +63,28 @@
       }
     }
   }
+  .headInfo {
+    @include center;
+    width: 70%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    text-shadow: 0 6px 4px #1c1f21;
+    span {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .title {
+      @include font(35px, #fff, 700);
+    }
+    .subTitle {
+      @include font(20px, #fff, 500);
+    }
+
+  }
 }
 
 @keyframes move-forever {

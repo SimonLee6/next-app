@@ -1,0 +1,106 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixin.scss";
+
+.blogList {
+  @include wh(100%, auto);
+  padding: 20px 0;
+  .blogItem {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    @include wh(100%, 230px);
+    overflow: hidden;
+    border-radius: 5px;
+    .itemLeft {
+      @include wh(35%, 230px);
+      clip-path: polygon(0 0, 94% 0%, 100% 100%, 0% 100%);
+      img {
+        @include wh-max;
+        z-index: 2;
+        transition: .3s ease-out;
+      }
+    }
+    .itemRight {
+      z-index: 2;
+      @include wh(65%, 230px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 30px 50px;
+      .blogTitle {
+        width: 100%;
+        @include font(22px, #fff, bold);
+        word-break: break-all;
+        text-shadow: 0 2px 2px #000;
+      }
+      .blogIntroduce {
+        width: 100%;
+        max-width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        @include font(15px, #fff, 400);
+      }
+      .blogInfo {
+        width: 100%;
+        @include font(13px, #fff, 500);
+        .date {
+          @include wh(auto, 30px);
+          padding: 3px 5px;
+          border-radius: 4px;
+        }
+        .readCount {
+          @include wh(auto, 30px);
+          padding: 3px 5px;
+          border-radius: 4px;
+        }
+        .tags {
+          @include wh(auto, 30px);
+          padding: 3px 5px;
+          border-radius: 4px;
+        }
+      }
+    }
+    .itemBlur {
+      z-index: 0;
+      // transform: scale(1.2);
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        @include wh-max;
+        z-index: 1;
+        opacity: 1;
+        object-fit: cover;
+        background-position-x: center;
+        background-position-y: center;
+        background-size: cover;
+        filter: blur(35px) brightness(0.8);
+      }
+    }
+    &:hover {
+      .itemLeft {
+        img {
+          transform: scale(1.05) rotate(1deg);
+        }
+      }
+    }
+  }
+  .itemRow {
+    flex-direction: row;
+    .itemLeft {
+      clip-path: polygon(0 0, 94% 0%, 100% 100%, 0% 100%);
+    }
+  }
+  .itemRowReverse {
+    flex-direction: row-reverse;
+    .itemLeft {
+      clip-path: polygon(0 0%, 100% 0%, 100% 100%, 6% 100%);
+    }
+  }
+}

@@ -1,4 +1,5 @@
 @import "./variables.scss";
+@import "./mixin.scss";
 // 响应式css
 @media screen and (min-width: 1200px) {
   .z-blog-container {
@@ -46,5 +47,41 @@
 		.aside-wrap {
 			width: 257px;
 		}
+	}
+}
+
+.icon-tip__blog {
+	position: relative;
+	display: inline-block;
+	@include wh(11px, 11px);
+	margin-right: 5px;
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		transform: translate(-3px, -3px);
+		@include wh(17px, 17px);
+		border-radius: 50%;
+		z-index: -1;
+	}
+}
+
+.icon-tag {
+	@include bg-max($icon-tag);
+	&::before {
+		background: green;
+	}
+}
+.icon-readCount {
+	@include bg-max($icon-readCount);
+	&::before {
+		background: red;
+	}
+}
+.icon-date {
+	@include bg-max($icon-date);
+	&::before {
+		background: rgb(78, 78, 241);
 	}
 }

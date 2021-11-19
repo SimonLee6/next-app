@@ -8,8 +8,9 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 const proxyTable = {
-  "/api": {
-    target: "http://localhost:3002"
+  "/blogPage": {
+    target: "http://localhost:3002",
+    level: "debug"
   }
 }
 

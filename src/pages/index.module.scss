@@ -1,0 +1,15 @@
+@import "../scss/variables.scss";
+@import "../scss/mixin.scss";
+
+.homeTitle {
+  @include wh(100%, 50px);
+  line-height: 50px;
+  text-align: center;
+  @include font(15px, #000, 600);
+  background: #fff;
+  border: 1px solid #efefef;
+  border-radius: 6px;
+  .title {
+    margin-left: 5px;
+  }
+}

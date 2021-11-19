@@ -1,18 +1,49 @@
 
 import React, { Component } from "react";
-import { withRouter } from "next/router"
+import { withRouter, useRouter } from "next/router";
+import { Props } from "@interface/interfaces"
+// import ReactMarkdown from "react-markdown"
+
+import {
+  getBlogDetail
+} from "@api/article.api";
 
 interface State {}
-interface Props {}
 
-class ArticleDetail extends Component<any, State> {
+function ArticleDetail(props: Props) {
+  console.log(props)
 
-
-  render () {
-    console.log(this)
-    return (
-      <div>详情</div>
-    )
-  }
+  return (
+    <div>
+      {/* <ReactMarkdown children=""></ReactMarkdown> */}
+    </div>
+  )
 }
-export default withRouter(ArticleDetail)
+
+export const getServerSideProps = async (ctx: any) => {
+  try {
+    const articleId = ctx.query.articleId
+    let res = await getBlogDetail(articleId)
+    console.log(res)
+    return {
+      props: {
+        pageName: "blogDetail",
+        blogDetail: res.data.data || {}
+      }
+    }
+  } catch (error) {
+    console.log(error)
+    return {
+      props: {
+        pageName: "blogDetail",
+        blogDetail: {}
+      }
+    }
+  }
+  
+  
+}
+
+export default ArticleDetail
+
+

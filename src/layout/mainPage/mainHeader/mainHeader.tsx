@@ -1,8 +1,9 @@
 import React from 'react';
 import style from "./mainHeader.module.scss";
+import { Props } from "@interface/interfaces"
 
-
-function MainHeader() {
+function MainHeader(props: Props) {
+  console.log(props.pageName)
   return (
     <div className={style.header}>
       <div className={style.ripple}>
@@ -18,7 +19,12 @@ function MainHeader() {
           </g>
         </svg>
       </div>
-      <div>12121</div>
+      <div className={style.headInfo}>
+        <span className={style.title}>风入松林</span>
+        <span className={style.subTitle}>
+          Don't try so hard, the best things come when you least expect them to.
+        </span>
+      </div>
     </div>
   );
 }
