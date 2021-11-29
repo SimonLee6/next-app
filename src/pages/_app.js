@@ -17,8 +17,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter()
   console.log(router)
   const myProps = {
-    ...pageProps,
-    page: 1212
+    ...pageProps
   }
   return (
     <BlogContainer>

@@ -6,10 +6,12 @@ $foot-con-h: 160px;
 $line-color: rgba(255, 255, 255, 0.25);
 $font-orgen: #f08047;
 
-.blog-footer {
+.footer {
   @include wh(100%, $foot-h);
   box-sizing: border-box;
   padding: 10px 150px;
   background: #fff;
   @include font(14px, #333, normal);
+  // border-top: 1px solid #e9ecef;
+  
 }

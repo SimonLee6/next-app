@@ -36,6 +36,7 @@
 
 .main-page {
 	background-color: #f8f9fa;
+	padding-bottom: 20px;
 	.main-content {
 		max-width: 1140px;
 		margin: 0 auto;
@@ -43,6 +44,10 @@
 		display: flex;
 		.content-wrap {
 			flex: 1;
+			background: #fff;
+			border: 1px solid #e9ecef;
+			padding: 15px;
+			border-radius: 6px;
 		}
 		.aside-wrap {
 			width: 257px;
@@ -83,5 +88,11 @@
 	@include bg-max($icon-date);
 	&::before {
 		background: rgb(78, 78, 241);
+	}
+}
+.icon-msg {
+	@include bg-max($icon-msg);
+	&::before {
+		background: #FF5A20;
 	}
 }

@@ -47,8 +47,8 @@ class BlogHeader extends Component<ClassRouterComProps, BlogHeaderState> {
     return (
       <Layout className={`${style["blog-header--wrap"]} blog-header`}>
         <Layout.Header className={`${style["blog-header"]} ${ this.state.headActive ? style["header-active"]: ""}`}>
-          <span className={style["logo-wrap"]}>
-            
+          <span className={style["logo-wrap"]} onClick={() => router.push("/")}>
+            风入松林
             {/* <i className={style["icon-logo"]}></i> */}
           </span>
           <ul className={style["tabs-list"]}>

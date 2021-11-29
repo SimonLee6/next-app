@@ -11,6 +11,7 @@ import MainHeader from "@/layout/mainPage/mainHeader/mainHeader";
 import style from "./index.module.scss"
 const MainWrap = styled(Wrapper)`
   // padding: 0 15px;
+  background: #fff;
 `
 
 const blogList = [
@@ -51,7 +52,8 @@ export async function getServerSideProps() {
     let res = await ArticleApi.getArticleList()
     const articleData = res.data.data || defaultData;
     return {
-      props: { 
+      props: {
+        pageName: "home", 
         articleData: articleData.data,
         pagingInfo: articleData.pagingInfo
       }

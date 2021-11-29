@@ -1,0 +1,29 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixin.scss";
+
+.blogDetail {
+  @include wh-max;
+  .blogMarkdown {
+    padding: 20px 30px;
+    background-image: linear-gradient(
+      90deg,rgba(60,10,30,.04) 3%,transparent 0),linear-gradient(
+      1turn,rgba(60,10,30,.04) 3%,transparent 0);
+    background-size: 20px 20px;
+    background-position: 10%;
+    pre {
+      margin: 16px 0!important;
+      padding: 0!important;
+      background-color: #2b2b2b!important;
+      border-radius: 3px;
+      box-shadow: 0 0 8px hsl(0deg 0% 1%);
+      code {
+        display: block;
+        margin: 16px !important;
+        color: #abb2bf;
+      }
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+}

@@ -13,7 +13,7 @@
   box-shadow: 0 1px 4px rgb(18 38 63 / .1);
   .blog-header {
     width: 100%;
-    padding: 0 10px;
+    padding: 0 10px 0 30px;
     // margin: 0 auto;
     @include wh-max;
     background: transparent;
@@ -26,13 +26,20 @@
           color: rgba(0,0,0,.9);
         }
       }
+      .logo-wrap {
+        color: rgba(0,0,0,.9);
+      }
       
     }
     .logo-wrap {
+      cursor: pointer;
       height: 100%;
+      color: #fff;
+      @include font(20px, #fff, bold);
       .icon-logo {
         display: inline-block;
         @include wh(300px, 70px);
+        
         // @include bg-max($blog-avatar);
         // border-radius: 50%;
       }

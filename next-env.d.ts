@@ -8,3 +8,10 @@ declare module "styled-components" {
   export { keyframes };
   export default styled;
 };
+
+declare module "marked" {
+  import { marked } from "marked";
+  export { marked };
+}
+
+declare module "*.png";
