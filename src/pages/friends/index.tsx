@@ -6,12 +6,17 @@ import styled  from "styled-components";
 
 import { Wrapper } from "@styledComponents";
 
-export default class Friends extends Component {
+export default function Friends() {
 
-  render() {
+  return (
+    <Wrapper>友人帐</Wrapper>
+  )
+}
 
-    return (
-      <Wrapper>友人帐</Wrapper>
-    )
+export const getStaticProps = (ctx: any) => {
+  return {
+    props: {
+      pageTitle: "友人帐"
+    }
   }
 }

@@ -43,12 +43,11 @@ const HeaderInfo = (props: Props) => {
       </div>
     )
   } else {
+    const { pageTitle, pageSubTitle } = props
     return (
       <div className={style.headInfo}>
-        {/* <div className={style.title}>风入松林</div>
-        <div className={style.subTitle}>
-          Don't try so hard, the best things come when you least expect them to.
-        </div> */}
+        <div className={style.title}>{ pageTitle }</div>
+        <div className={style.subTitle}>{ pageSubTitle || "" }</div>
       </div>
     )
   }

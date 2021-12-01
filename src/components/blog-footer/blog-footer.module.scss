@@ -7,6 +7,7 @@ $line-color: rgba(255, 255, 255, 0.25);
 $font-orgen: #f08047;
 
 .footer {
+  position: relative;
   @include wh(100%, $foot-h);
   box-sizing: border-box;
   padding: 10px 150px;
@@ -14,4 +15,30 @@ $font-orgen: #f08047;
   @include font(14px, #333, normal);
   // border-top: 1px solid #e9ecef;
   
+  .websiteInfo {
+    display: flex;
+    flex-wrap: wrap;
+    @include center;
+    color: #212529;
+    width: 400px;
+    text-align: center;
+    .websiteName {
+      width: 100%;
+      margin-bottom: 5px;
+      .name {
+        cursor: pointer;
+        margin-left: 4px;
+        @include font(12px, $theme-color, 600);
+      }
+    }
+    .websiteProvider {
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 5px;
+      @include font(13px, $theme-color, 600);
+      a {
+        @include font(14px, $theme-color, 600);
+      }
+    }
+  }
 }

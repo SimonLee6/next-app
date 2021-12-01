@@ -3,12 +3,17 @@ import { Layout } from "antd";
 import router from "next/router";
 import BlogContainer from "@layout/blog-container/blog-container";
 
-export default class BlogMsgBoard extends Component {
+export default function BlogMsgBoard() {
+  
+  return(
+    <div>留言板</div>
+  )
+}
 
-  render() {
-
-    return (
-      "留言板"
-    )
+export const getStaticProps = (ctx: any) => {
+  return {
+    props: {
+      pageTitle: "留言板"
+    }
   }
 }

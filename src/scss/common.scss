@@ -96,3 +96,28 @@
 		background: #FF5A20;
 	}
 }
+
+.icon-tip__big {
+	position: relative;
+	display: inline-block;
+	@include wh(20px, 20px);
+	margin-right: 5px;
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		transform: translate(-3px, -3px);
+		@include wh(35px, 35px);
+		border-radius: 50%;
+		z-index: -1;
+	}
+}
+
+.icon-email {
+	@include bg-max($icon-email);
+	@include wh(25px, 25px);
+	// &::before {
+	// 	background: #FF5A20;
+	// }
+}

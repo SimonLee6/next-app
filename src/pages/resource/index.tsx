@@ -6,12 +6,11 @@ import styled  from "styled-components";
 
 import { Wrapper } from "@styledComponents";
 
-export default class Resource extends Component {
+export default function Resource() {
 
-  render() {
-
-    return (
-      <Wrapper>资源</Wrapper>
-    )
-  }
+  return (
+    <Wrapper>资源</Wrapper>
+  )
 }
+
+

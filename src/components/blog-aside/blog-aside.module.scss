@@ -51,4 +51,42 @@
       }
     }
   }
+  .contactWrap {
+    @include wh(100%, 243px);
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    margin: 20px 0;
+    padding: 10px;
+    .contactTitle {
+      @include font(15px, #666, 500);
+      text-align: center;
+    }
+    .contactItem {
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      margin: 10px 0;
+      @include font(15px, #666, 500);
+      >span {
+        margin-right: 5px;
+      }
+      .itemIcon {
+        margin: 0 8px 0 2px;
+      }
+    }
+  }
+  .blogRandom {
+    @include wh(100%, 243px);
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    margin: 20px 0;
+    padding: 10px;
+    
+  }
+}
+
+.asideTitle {
+      
 }

@@ -8,9 +8,11 @@ import { ClassRouterComProps } from "@interface/interfaces"
 const tabs: TabItem[] = [
   // { name: "主页", link: "/", value: "home" },
   { name: "个人文章", link: "/article", value: "article" },
-  { name: "技术资源", link: "/resource", value: "resource" },
+  // { name: "技术资源", link: "/resource", value: "resource" },
   { name: "友人帐", link: "/friends", value: "friends" },
+  { name: "随手拍", link: "/photos", value: "photos" },
   { name: "留言板", link: "/msgBoard", value: "msgBoard" },
+  { name: "关于我", link: "/about", value: "about" }
 ]
 const headerH = 70
 

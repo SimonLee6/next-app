@@ -63,13 +63,15 @@ export async function getStaticProps() {
     const articleData = res.data.data || defaultData;
     return {
       props: { 
-        articleData
+        articleData,
+        pageTitle: "文章"
       }
     }
   } catch (error) {
     return {
       props: { 
-        articleData: defaultData
+        articleData: defaultData,
+        pageTitle: "文章"
       }
     }
   }
