@@ -21,13 +21,11 @@ function ArticleDetail(props: Props) {
   const router = useRouter()
   const blogUrl = typeof window !== "undefined" ? location.href : ""
   
-  const [comments, setComments] = useState({
-    blogComments: []
-  })
+  const [comments, setComments] = useState([])
   useEffect(() => {
     const getComments = async () => {
       let res = await getBlogComments(blogDetail.id)
-      setComments({ blogComments: res.data.data })
+      setComments(res.data.data)
     }
     getComments()
   }, [])
@@ -84,7 +82,7 @@ function ArticleDetail(props: Props) {
           <span className={style.btnSupport}>赞</span>
         </div> */}
       </div>
-      <BlogComments title="文章评论" comments={comments.blogComments}></BlogComments>
+      <BlogComments title="文章评论" comments={comments}></BlogComments>
       
     </div>
       
