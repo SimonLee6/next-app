@@ -1,0 +1,16 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixin.scss";
+
+.msgBoard {
+  @include wh(100%, auto);
+  .boardTitle {
+    @include wh(100%, 100px);
+    margin-bottom: 15px;
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 2px;
+    @include font(30px, #343a40, 400);
+    text-align: center;
+    line-height: 100px;
+  }
+}

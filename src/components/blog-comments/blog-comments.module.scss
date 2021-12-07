@@ -1,0 +1,118 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixin.scss";
+
+.commentsWrap {
+  @include wh(100%, auto);
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 2px;
+  padding: 20px;
+  .commentsTitle {
+    display: flex;
+    align-items: center;
+    @include font(16px, #343a40, 500);
+    margin-bottom: 10px;
+  }
+  .commentsForm {
+    @include wh(100%, auto);
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    padding: 10px;
+    .formItem {
+      
+      input, textarea {
+        border: 0;
+        &:active,
+        &:focus {
+          border: 0 !important;
+          box-shadow: none;
+        }
+      }
+      button {
+        padding: 4px 8px;
+        background: $theme-color;
+        border-color: $theme-color;
+        font-weight: 700;
+        &:hover {
+          background: $theme-color;
+        }
+      }
+    }
+  }
+
+  .commentsList {
+    display: flex;
+    flex-wrap: wrap;
+    .commentsItem {
+      @include wh(100%, auto);
+      
+      .replyComments {
+        padding: 10px 0 0 50px;
+        .sub {
+          .subAvatar {
+            @include wh(40px, 40px);
+          }
+
+        }
+      }
+    }
+  }
+  .commentItemWrap {
+    .commentInfo {
+      display: flex;
+      @include wh(100%, auto);
+      .avatar {
+        @include wh(50px, 50px);
+        @include bg-max($default-avatar);
+      }
+      .topInfo {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 5px 10px;
+        .topItem {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          .topItemCell {
+            margin-right: 10px;
+            @include font(13px, #b3b3b3);
+            > span {
+              margin-left: 4px;
+            }
+          }
+          .nickName {
+            @include font(15px, #343a40, 500);
+            margin-right: 7px;
+          }
+          .commentType {
+            @include wh(36px, 18px);
+            border-radius: 15px;
+            background: #6c757d;
+            text-align: center;
+            line-height: 18px;
+            @include font(13px, #fff, 500);
+          }
+        }
+        .top {
+          font-size: 14px;
+          margin-bottom: 2px;
+        }
+        .bottom {
+          @include font(14px, #b3b3b3);
+        }
+      }
+      .replyBtn {
+        cursor: pointer;
+        width: 60px;
+        @include font(13px, #999);
+      }
+    }
+    .commentText {
+      padding: 15px 0;
+      padding-left: 60px;
+    }
+  }
+        
+}

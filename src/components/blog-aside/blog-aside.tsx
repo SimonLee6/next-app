@@ -27,7 +27,10 @@ export default function BlogAside() {
           </span>
         </div>
       </div>
-      <div className={[style.blogRandom, style.asideTitle].join(" ")}></div>
+      {/* <div className={[style.blogRandom, style.asideTitle].join(" ")}>
+        <div className={style.asideTitle}>随便看看</div>
+      </div> */}
+      
       {/* <div className={style.contactWrap}>
         <div className={style.contactTitle}>Contact</div>
         <div className={style.contactItem}>

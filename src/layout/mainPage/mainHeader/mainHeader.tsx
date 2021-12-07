@@ -59,6 +59,8 @@ function MainHeader(props: Props) {
   let img = "https://blog-simon.oss-cn-beijing.aliyuncs.com/blog-image/main-header.png"
   if (props.pageName === "blogDetail") {
     img = props.blogDetail.cover_image
+  } else {
+    props.headerBgImg && (img = props.headerBgImg)
   }
   return (
     <div className={style.header}>

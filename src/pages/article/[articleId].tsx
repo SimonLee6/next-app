@@ -1,21 +1,37 @@
 
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { withRouter, useRouter } from "next/router";
 import { Props } from "@interface/interfaces";
-
+import { Button } from "antd";
 import { marked } from "marked";
 import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-dark.css";
 import style from "./detail.module.scss";
+import BlogComments from "@com/blog-comments/blog-comments";
 
 
 import {
-  getBlogDetail
+  getBlogDetail,
+  getBlogComments
 } from "@api/article.api";
 
 
 function ArticleDetail(props: Props) {
   const { blogDetail } = props
+  const router = useRouter()
+  const blogUrl = typeof window !== "undefined" ? location.href : ""
+  
+  const [comments, setComments] = useState({
+    blogComments: []
+  })
+  useEffect(() => {
+    const getComments = async () => {
+      let res = await getBlogComments(blogDetail.id)
+      setComments({ blogComments: res.data.data })
+    }
+    getComments()
+  }, [])
+  
 
   marked.setOptions({
     renderer: new marked.Renderer(),
@@ -34,9 +50,45 @@ function ArticleDetail(props: Props) {
   let articleContent = marked(blogDetail.content)
 
   return (
-    <div className={style.blogDetail}>
-      <div className={style.blogMarkdown} dangerouslySetInnerHTML={{__html: articleContent }}></div>
+    <div className={style.blogDetailWrap}>
+      <div className={style.blogDetail}>
+        <div className={style.blogMarkdown} dangerouslySetInnerHTML={{__html: articleContent }}></div>
+      </div>
+      
+      <div className={style.blogBottom}>
+        <hr className="icon-hr"/>
+        <div className={style.blogBelong}>
+          <div className={style.belongItem}>
+            <i className="tip-circle icon-user"></i>
+            <span className={style.belongItemText}>
+              <span className={style.textTitle}>版权属于:</span>isimon
+            </span>
+          </div>
+          <div className={style.belongItem}>
+            <i className="tip-circle icon-link"></i>
+            <span className={style.belongItemText}>
+            <span className={style.textTitle}>本文链接:</span>{ blogUrl }
+            </span>
+          </div>
+          
+          <div className={style.belongItem}>
+            <i className="tip-circle icon-share"></i>
+            <span className={style.belongItemText}>
+            <span className={style.textTitle}>作品采用:</span>知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议 进行许可
+            </span>
+          </div>
+          
+        </div>
+        {/* <hr className="icon-hr bottom"/> */}
+        {/* <div className={style.operateBtn}>
+          <span className={style.btnSupport}>赞</span>
+        </div> */}
+      </div>
+      <BlogComments title="文章评论" comments={comments.blogComments}></BlogComments>
+      
     </div>
+      
+   
   )
 }
 
@@ -45,6 +97,7 @@ export const getServerSideProps = async (ctx: any) => {
     const articleId = ctx.query.articleId
     let res = await getBlogDetail(articleId)
     // console.log(res)
+
     return {
       props: {
         pageName: "blogDetail",

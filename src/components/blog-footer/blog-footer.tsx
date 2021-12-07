@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import { Layout } from "antd";
 import style from "./blog-footer.module.scss";
 import dayjs from "dayjs";
-import router from 'next/router';
+import router from "next/router";
 
 
 export default function BlogFooter() {

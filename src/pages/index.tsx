@@ -10,8 +10,9 @@ import { Props, ArticleData } from "@interface/interfaces"
 import MainHeader from "@/layout/mainPage/mainHeader/mainHeader";
 import style from "./index.module.scss"
 const MainWrap = styled(Wrapper)`
-  // padding: 0 15px;
   background: #fff;
+  border: 1px solid #e9ecef;
+  padding: 15px;
 `
 
 const blogList = [

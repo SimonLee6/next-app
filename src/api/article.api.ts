@@ -17,6 +17,13 @@ export const getBlogDetail = (blogId: any) => {
   })
 }
 
+export const getBlogComments = (blogId: any) => {
+  return axios({
+    url: `${baseUrl}/blogPage/getBlogComments?blogId=${blogId}`,
+    method: "get"
+  })
+}
+
 
 apiConfig.forEach(ele => {
   apiServiceObj[ele.name] = function(params) {

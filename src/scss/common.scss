@@ -44,9 +44,9 @@
 		display: flex;
 		.content-wrap {
 			flex: 1;
-			background: #fff;
-			border: 1px solid #e9ecef;
-			padding: 15px;
+			// background: #fff;
+			// border: 1px solid #e9ecef;
+			// padding: 15px;
 			border-radius: 6px;
 		}
 		.aside-wrap {
@@ -97,6 +97,8 @@
 	}
 }
 
+
+
 .icon-tip__big {
 	position: relative;
 	display: inline-block;
@@ -114,10 +116,58 @@
 	}
 }
 
+
+
 .icon-email {
 	@include bg-max($icon-email);
 	@include wh(25px, 25px);
 	// &::before {
 	// 	background: #FF5A20;
 	// }
+}
+
+
+.tip-circle {
+	position: relative;
+	display: inline-block;
+	@include wh(17px, 17px);
+	border-radius: 50%;
+	&:before {
+		content: "";
+		position: absolute;
+		left: 50%; top: 50%;
+		transform: translate(-55%, -50%);
+		@include wh(11px, 11px);
+	}
+}
+
+.icon-user {
+	background: #249FF8;
+	&::before {
+		@include bg-max($icon-user);
+	}
+}
+.icon-share {
+	background: #F3B243;
+	&::before {
+		@include bg-max($icon-share);
+	}
+}
+.icon-link {
+	background: #39B54A;
+	&::before {
+		@include bg-max($icon-link);
+	}
+}
+
+.icon-hr {
+	margin: 0;
+	padding: 10px 0; 
+	background: #fff;
+	border: 0;
+	border-top: 1px solid whitesmoke;
+	&.bottom {
+		border: 0;
+		border-bottom: 1px solid whitesmoke;
+	}
 }

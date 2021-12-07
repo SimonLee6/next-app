@@ -1,9 +1,10 @@
 import React, { Component } from "react"
 import { Layout } from "antd";
 import router from "next/router";
-
+import BlogList from "@com/blog-list/blog-list"
 import ArticleApi from "@api/article.api";
-import { Button } from 'antd';
+import style from "./article.module.scss";
+
 
 type ArticleData = {
   data: any[];
@@ -14,41 +15,24 @@ type ArticleData = {
   };
 }
 interface Props {
-  articleData: ArticleData
+  articleData: ArticleData;
+  pageTitle: string
 }
-interface State {
-  page: string
-}
-class BlogArticle extends Component<Props, State> {
-  constructor (props: Props) {
-    super(props)
-    this.state = {
-      page: "列表"
-    }
-  }
-  async componentDidMount() {
-    console.log(this)
-  }
-  handlerClick = () => {
-    this.setState({ page: "新列表"})
-  }
-  render() {
-    const articleList = this.props.articleData.data
-    const pagingInfo = this.props.articleData.pagingInfo
-    return (
-      <div className="article-wrap">
-        <ul>
-          {
-            articleList.map(ele => (
-              <li key={ele.id}>{ ele.title }</li>
-            ))
-          }
-        </ul>
-        <Button onClick={this.handlerClick}>点击</Button>
+
+
+export default function BlogArticle(props: Props) {
+
+  const articleData = props.articleData
+
+  return(
+    <div className={style.articleWrap}>
+      <div className={style.articleList}>
+        <BlogList blogList={articleData.data} pagingInfo={articleData.pagingInfo}></BlogList>
       </div>
-    )
-  }
+    </div> 
+  )
 }
+
 export async function getStaticProps() {
   const defaultData: ArticleData = {
     data: [],
@@ -64,19 +48,17 @@ export async function getStaticProps() {
     return {
       props: { 
         articleData,
-        pageTitle: "文章"
+        pageTitle: "个人文章"
       }
     }
   } catch (error) {
     return {
       props: { 
         articleData: defaultData,
-        pageTitle: "文章"
+        pageTitle: "个人文章"
       }
     }
   }
   
   
 }
-
-export default BlogArticle;
