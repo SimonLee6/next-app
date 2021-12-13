@@ -82,6 +82,11 @@ const ReplayForm = (props: any) => {
       return
     }
     addCommentsMethod(params)
+
+    setNickName("")
+    setEmail("")
+    setNet("")
+    setContent("")
   }
 
   return(
@@ -126,7 +131,7 @@ const ReplayForm = (props: any) => {
 export default function BlogComments(props: CommentsProps) {
 
   const { title = "评论", comments = [] } = props
-  
+
   return(
     <div className={style.commentsWrap}>
       <div className={style.commentsTitle}>

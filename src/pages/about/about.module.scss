@@ -1,0 +1,12 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixin.scss";
+
+.aboutWrap {
+  @include wh-max;
+  background: #fff;
+  border: 1px solid #e9ecef;
+  padding: 15px;
+  .about1 {
+    
+  }
+}

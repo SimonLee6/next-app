@@ -10,19 +10,25 @@ const apiConfig: ApiConfigItem[] = [
 
 const apiServiceObj = {} as ApiServiceObj;
 
-export const getBlogDetail = (blogId: any) => {
+export const QueryBlogDetail = (blogId: any) => {
   return axios({
     url: `${baseUrl}/blogPage/getBlogDetail/${blogId}`,
     method: "get"
   })
 }
 
-export const getBlogComments = (blogId: any) => {
+export const QueryBlogComments = (blogId: any) => {
   return axios({
     url: `${baseUrl}/blogPage/getBlogComments?blogId=${blogId}`,
     method: "get"
   })
 }
+
+// export const AddBlogComment = (params: any) => {
+//   return axios({
+//     url: ``
+//   })
+// }
 
 
 apiConfig.forEach(ele => {

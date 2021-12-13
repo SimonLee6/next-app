@@ -11,8 +11,8 @@ import BlogComments from "@com/blog-comments/blog-comments";
 
 
 import {
-  getBlogDetail,
-  getBlogComments
+  QueryBlogDetail,
+  QueryBlogComments
 } from "@api/article.api";
 
 
@@ -22,13 +22,20 @@ function ArticleDetail(props: Props) {
   const blogUrl = typeof window !== "undefined" ? location.href : ""
   
   const [comments, setComments] = useState([])
+  const [isUpdate, setUpdateFlag] = useState(false)
   useEffect(() => {
     const getComments = async () => {
-      let res = await getBlogComments(blogDetail.id)
+      let res = await QueryBlogComments(blogDetail.id)
       setComments(res.data.data)
     }
     getComments()
-  }, [])
+  }, [isUpdate])
+
+  const addBlogComments = () => {
+
+  }
+
+
   
 
   marked.setOptions({
@@ -82,7 +89,8 @@ function ArticleDetail(props: Props) {
           <span className={style.btnSupport}>赞</span>
         </div> */}
       </div>
-      <BlogComments title="文章评论" comments={comments}></BlogComments>
+
+      {/* <BlogComments title="文章评论" comments={comments} addCommentsMethod={addBlogComments}></BlogComments> */}
       
     </div>
       
@@ -93,7 +101,7 @@ function ArticleDetail(props: Props) {
 export const getServerSideProps = async (ctx: any) => {
   try {
     const articleId = ctx.query.articleId
-    let res = await getBlogDetail(articleId)
+    let res = await QueryBlogDetail(articleId)
     // console.log(res)
 
     return {
