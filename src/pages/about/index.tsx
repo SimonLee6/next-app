@@ -7,7 +7,9 @@ export default function AboutMe() {
   console.log(router)
   return(
     <div className={style.aboutWrap}>
-      <div className={style.about1}></div>
+      <div className={style.about1}>
+         <h1 className={style.aboutTitle}>自我介绍</h1>
+      </div>
     </div>
   )
 }

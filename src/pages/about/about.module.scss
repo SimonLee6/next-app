@@ -7,6 +7,8 @@
   border: 1px solid #e9ecef;
   padding: 15px;
   .about1 {
-    
+    .aboutTitle {
+      @include font(18px, #000, bold);
+    }
   }
 }
