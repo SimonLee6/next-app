@@ -15,3 +15,11 @@ declare module "marked" {
 }
 
 declare module "*.png";
+
+ 
+
+interface Window {
+  returnCitySN: {
+    [key: string]: any
+  }
+}

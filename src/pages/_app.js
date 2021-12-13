@@ -7,8 +7,8 @@ import BlogContainer from "@layout/blog-container/blog-container";
 import BlogMiniComponent from "@com/blog-miniComponent/index";
 import BlogAside from "@com/blog-aside/blog-aside"
 import MainHeader from "@/layout/mainPage/mainHeader/mainHeader";
-import { useRouter } from "next/router"
-import App from "next/app"
+import { useRouter } from "next/router";
+import App from "next/app";
 
 
 
@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps }) {
   }
   return (
     <BlogContainer>
+      
       {/* <BlogLive2d /> */}
       <BlogMiniComponent />
       <div className="main-page">
@@ -39,9 +40,7 @@ function MyApp({ Component, pageProps }) {
 
 export function getInitialProps(appContext) {
   App.getInitialProps(appContext)
-  return {
-    page: "12"
-  }
+  return {}
 }
 
 export default MyApp

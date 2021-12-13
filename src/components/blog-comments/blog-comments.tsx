@@ -5,12 +5,17 @@ import {
   ChromeFilled,
   WindowsFilled,
   EnvironmentOutlined,
-} from "@ant-design/icons"
-import { Row, Col, Input, Button } from "antd";
+} from "@ant-design/icons";
+import { Row, Col, Input, Button, message } from "antd";
+import { useState } from "react";
+import { getBrowser, getSystem } from "@util/util";
 
-const submitComments = () => {
-  console.log("submit")
-}
+type CommentsProps = {
+  addCommentsMethod: Function
+} & Props;
+
+
+
 
 const CommentItem = ({comments, type = "main"}) => {
   const IconStyle = {
@@ -49,23 +54,52 @@ const CommentItem = ({comments, type = "main"}) => {
     </div>
   )
 }
-const ReplayForm = () => {
+const ReplayForm = (props: any) => {
+  const addCommentsMethod = props.addCommentsMethod
+
+  const [nickName, setNickName] = useState("")
+  const [email, setEmail] = useState("")
+  const [net, setNet] = useState("")
+  const [content, setContent] = useState("")
+
+  
+  
+  const submitComments = () => {
+    // type: comments(留言), replyComments(回复留言)
+    const params = {
+      type: "comments",
+      nick_name: nickName,
+      email,
+      net,
+      content,
+      system: getSystem(),
+      browser: getBrowser(),
+      location: window.returnCitySN.cname || "未知"
+    }
+    if (!nickName || !content) {
+
+      message.warning("昵称/内容不为空")
+      return
+    }
+    addCommentsMethod(params)
+  }
+
   return(
     <div className={style.commentsForm}>
       <Row style={{borderBottom: "1px dotted #e9ecef", padding: "5px"}}>
         <Col span={8}>
           <div className={style.formItem}>
-            <Input placeholder="*昵称" type="text" />
+            <Input placeholder="*昵称" type="text" onChange={e => setNickName(e.target.value)}/>
           </div>
         </Col>
         <Col span={8}>
           <div className={style.formItem}>
-            <Input placeholder="邮箱" type="text" />
+            <Input placeholder="邮箱" type="text" onChange={e => setEmail(e.target.value)}/>
           </div>
         </Col>
         <Col span={8}>
           <div className={style.formItem}>
-            <Input placeholder="网站" type="text" />
+            <Input placeholder="网站" type="text" onChange={e => setNet(e.target.value)}/>
           </div>
           
         </Col>
@@ -73,7 +107,7 @@ const ReplayForm = () => {
       <Row style={{marginBottom: "10px"}}>
         <Col span={24}>
           <div className={style.formItem}>
-            <Input.TextArea placeholder="吐吐槽吧~" rows={6}></Input.TextArea>
+            <Input.TextArea placeholder="吐吐槽吧~" rows={6} onChange={e => setContent(e.target.value)}></Input.TextArea>
           </div>
         </Col>
       </Row>
@@ -89,9 +123,10 @@ const ReplayForm = () => {
 }
 
 
-export default function BlogComments(props: Props) {
+export default function BlogComments(props: CommentsProps) {
 
   const { title = "评论", comments = [] } = props
+  
   return(
     <div className={style.commentsWrap}>
       <div className={style.commentsTitle}>
@@ -100,7 +135,7 @@ export default function BlogComments(props: Props) {
       </div>
       <hr className="icon-hr"/>
       <div className={style.commentsFormWrap}>
-        <ReplayForm></ReplayForm>
+        <ReplayForm addCommentsMethod={props.addCommentsMethod}></ReplayForm>
       </div>
       <div className={style.commentsList}>
         {
