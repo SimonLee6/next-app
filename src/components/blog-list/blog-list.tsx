@@ -1,12 +1,10 @@
 import {
   Props,
   ArticleItem
-} from "@interface/interfaces"
+} from "@interface/interfaces";
 
-import { useRouter } from "next/router"
-import style from "./blog-list.module.scss"
-
-
+import { useRouter } from "next/router";
+import style from "./blog-list.module.scss";
 
 
 export default function BlogList(props: Props) {
@@ -20,7 +18,6 @@ export default function BlogList(props: Props) {
     router.push(`/article/${item.id}`)
   }
   
-
   return(
     <div className={style.blogList}>
       {
@@ -62,7 +59,6 @@ export default function BlogList(props: Props) {
           </div>
         ))
       }
-      
     </div>
   )
 }

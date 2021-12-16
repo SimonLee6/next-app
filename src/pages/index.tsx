@@ -13,6 +13,9 @@ const MainWrap = styled(Wrapper)`
   background: #fff;
   border: 1px solid #e9ecef;
   padding: 15px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 `
 
 const blogList = [
