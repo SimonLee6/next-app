@@ -24,11 +24,13 @@ export const QueryBlogComments = (blogId: any) => {
   })
 }
 
-// export const AddBlogComment = (params: any) => {
-//   return axios({
-//     url: ``
-//   })
-// }
+export const AddBlogComments = (params: any) => {
+  return axios({
+    url: `${baseUrl}/blogPage/addBlogComments`,
+    method: "post",
+    data: params
+  })
+}
 
 
 apiConfig.forEach(ele => {

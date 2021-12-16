@@ -1,0 +1,25 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixin.scss";
+
+.photosWrap {
+  @include wh-max;
+  background: #fff;
+  border: 1px solid #e9ecef;
+  padding: 15px;
+  .title {
+    @include font(18px, #000, 500);
+    margin-bottom: 20px;
+  }
+  .photo1 {
+    @include wh(500px, 300px);
+    img {
+      @include wh-max;
+    }
+  }
+  .photo2 {
+    @include wh(300px, 500px);
+    img {
+      @include wh-max;
+    }
+  }
+}

@@ -15,7 +15,6 @@ import App from "next/app";
 function MyApp({ Component, pageProps }) {
   
   const router = useRouter()
-  console.log(router)
   const myProps = {
     ...pageProps
   }

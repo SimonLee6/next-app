@@ -2,7 +2,7 @@
 import React, { Component, useState, useEffect } from "react";
 import { withRouter, useRouter } from "next/router";
 import { Props } from "@interface/interfaces";
-import { Button } from "antd";
+import { Button, message } from "antd";
 import { marked } from "marked";
 import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-dark.css";
@@ -10,19 +10,22 @@ import style from "./detail.module.scss";
 import BlogComments from "@com/blog-comments/blog-comments";
 
 
+
 import {
   QueryBlogDetail,
-  QueryBlogComments
+  QueryBlogComments,
+  AddBlogComments
 } from "@api/article.api";
 
 
 function ArticleDetail(props: Props) {
   const { blogDetail } = props
-  const router = useRouter()
+
   const blogUrl = typeof window !== "undefined" ? location.href : ""
   
   const [comments, setComments] = useState([])
   const [isUpdate, setUpdateFlag] = useState(false)
+
   useEffect(() => {
     const getComments = async () => {
       let res = await QueryBlogComments(blogDetail.id)
@@ -31,12 +34,24 @@ function ArticleDetail(props: Props) {
     getComments()
   }, [isUpdate])
 
-  const addBlogComments = () => {
-
+  const addBlogComments = async (params: any) => {
+    try {
+      const saveParams = {
+        ...params,
+        blog_id: blogDetail.id
+      }
+      let res = await AddBlogComments(saveParams)
+      if (res.data.code === 200) {
+        message.success("评论成功")
+        setUpdateFlag(!isUpdate)
+      }
+      
+    } catch (error) {
+      console.log(error)
+    }
   }
 
 
-  
 
   marked.setOptions({
     renderer: new marked.Renderer(),
@@ -90,7 +105,7 @@ function ArticleDetail(props: Props) {
         </div> */}
       </div>
 
-      {/* <BlogComments title="文章评论" comments={comments} addCommentsMethod={addBlogComments}></BlogComments> */}
+      <BlogComments title="文章评论" comments={comments} addCommentsMethod={addBlogComments}></BlogComments>
       
     </div>
       
@@ -115,7 +130,9 @@ export const getServerSideProps = async (ctx: any) => {
     return {
       props: {
         pageName: "blogDetail",
-        blogDetail: {}
+        blogDetail: {
+          content: ""
+        }
       }
     }
   }

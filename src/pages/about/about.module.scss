@@ -6,9 +6,26 @@
   background: #fff;
   border: 1px solid #e9ecef;
   padding: 15px;
-  .about1 {
+  .about1,
+  .about2 {
+    border: 1px solid green;
+    border-radius: 4px;
+    padding: 15px;
     .aboutTitle {
       @include font(18px, #000, bold);
     }
+    .subTitle {
+      @include font(15px, #000, bold);
+    }
+    p {
+      @include font(14px, #000, 500);
+      margin-bottom: 6px;
+    }
+    .aboutCard {
+      margin-bottom: 10px;
+    }
+  }
+  .about2 {
+    margin: 10px 0;
   }
 }

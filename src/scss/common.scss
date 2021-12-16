@@ -171,3 +171,18 @@
 		border-bottom: 1px solid whitesmoke;
 	}
 }
+
+.sys-logo {
+	cursor: pointer;
+	display: inline-block;
+	@include wh(30px, 30px);
+}
+.sys-logo--juejing {
+	@include bg-max($sys-juejin);
+}
+.sys-logo--github {
+	@include bg-max($sys-github);
+}
+.sys-logo--sifou {
+	@include bg-max($sys-sifou);
+}

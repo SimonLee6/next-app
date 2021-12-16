@@ -46,9 +46,7 @@ const CommentItem = ({comments, type = "main"}) => {
           </div>
           <div className={[style.bottom, style.topItem].join(" ")}>2020-12-12 23:23:23</div>
         </div>
-        {/* {
-          type === "main" ? <div className={style.replyBtn}>回复</div> : ""
-        } */}
+        {/* { type === "main" ? <div className={style.replyBtn}>回复</div> : "" } */}
       </div>
       <div className={style.commentText}>{comments.content}</div>
     </div>
@@ -94,17 +92,17 @@ const ReplayForm = (props: any) => {
       <Row style={{borderBottom: "1px dotted #e9ecef", padding: "5px"}}>
         <Col span={8}>
           <div className={style.formItem}>
-            <Input placeholder="*昵称" type="text" onChange={e => setNickName(e.target.value)}/>
+            <Input placeholder="*昵称" type="text" value={nickName} onChange={e => setNickName(e.target.value)}/>
           </div>
         </Col>
         <Col span={8}>
           <div className={style.formItem}>
-            <Input placeholder="邮箱" type="text" onChange={e => setEmail(e.target.value)}/>
+            <Input placeholder="邮箱" type="text" value={email} onChange={e => setEmail(e.target.value)}/>
           </div>
         </Col>
         <Col span={8}>
           <div className={style.formItem}>
-            <Input placeholder="网站" type="text" onChange={e => setNet(e.target.value)}/>
+            <Input placeholder="网站" type="text" value={net} onChange={e => setNet(e.target.value)}/>
           </div>
           
         </Col>
@@ -112,7 +110,7 @@ const ReplayForm = (props: any) => {
       <Row style={{marginBottom: "10px"}}>
         <Col span={24}>
           <div className={style.formItem}>
-            <Input.TextArea placeholder="吐吐槽吧~" rows={6} onChange={e => setContent(e.target.value)}></Input.TextArea>
+            <Input.TextArea placeholder="吐吐槽吧~" rows={6} value={content} onChange={e => setContent(e.target.value)}></Input.TextArea>
           </div>
         </Col>
       </Row>
