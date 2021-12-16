@@ -1,11 +1,10 @@
 import { QqOutlined, GithubOutlined } from "@ant-design/icons";
 import style from "./blog-aside.module.scss";
+import { Props } from "@interface/interfaces";
 
-export default function BlogAside() {
+export default function BlogAside(props: Props) {
 
-  let blogNum = 0
-
-
+  const { webInfo } = props
   return (
     <div className={style.asideWrap}>
       <div className={style.blogInfo}>
@@ -17,13 +16,13 @@ export default function BlogAside() {
         <div className={style.infoShadow}></div>
         <div className={style.blogInfoBottom}>
           <span className={style.infoItem}>
-            文章数 { blogNum }
+            文章 { webInfo.blog_count }
           </span>
           <span className={style.infoItem}>
-            评论 { blogNum }
+            评论 { webInfo.comments_count }
           </span>
           <span className={style.infoItem}>
-            标签 { blogNum }
+            访问 { webInfo.visit_count }
           </span>
         </div>
       </div>

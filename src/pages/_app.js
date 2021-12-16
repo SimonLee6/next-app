@@ -9,14 +9,17 @@ import BlogAside from "@com/blog-aside/blog-aside"
 import MainHeader from "@/layout/mainPage/mainHeader/mainHeader";
 import { useRouter } from "next/router";
 import App from "next/app";
+import {
+  QueryWebInfo
+} from "@api/blogInfo.api"
 
 
 
-function MyApp({ Component, pageProps }) {
-  
-  const router = useRouter()
+function MyApp({ Component, pageProps, webInfo }) {
+  console.log(pageProps, webInfo)
   const myProps = {
-    ...pageProps
+    ...pageProps,
+    webInfo
   }
   return (
     <BlogContainer>
@@ -26,20 +29,29 @@ function MyApp({ Component, pageProps }) {
       <div className="main-page">
         <MainHeader {...myProps }/>
         <div className="main-content">
-          <div className="content-wrap"><Component {...pageProps } /></div>
-          <div className="aside-wrap"><BlogAside /></div>
-        </div> 
-        
-        
+          <div className="content-wrap"><Component {...myProps} /></div>
+          <div className="aside-wrap"><BlogAside {...myProps}/></div>
+        </div>
       </div>
       
     </BlogContainer>
   )
 }
 
-export function getInitialProps(appContext) {
-  App.getInitialProps(appContext)
-  return {}
+MyApp.getInitialProps = async (appContext) => {
+  try {
+    let res = await QueryWebInfo()
+
+    const appProps = await App.getInitialProps(appContext)
+
+    console.log(res.data.data)
+    return {
+      ...appProps,
+      webInfo: res.data.data
+    }
+  } catch (error) {
+    return {}
+  }
 }
 
 export default MyApp
