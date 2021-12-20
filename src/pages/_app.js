@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps, webInfo }) {
     webInfo
   }
   return (
-    <BlogContainer>
+    <BlogContainer webInfo={webInfo}>
       
       {/* <BlogLive2d /> */}
       <BlogMiniComponent />

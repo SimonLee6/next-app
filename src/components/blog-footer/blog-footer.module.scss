@@ -40,5 +40,11 @@ $font-orgen: #f08047;
         @include font(14px, $theme-color, 600);
       }
     }
+    .websiteTime {
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+      @include font(12px, $theme-color, 300);
+    }
   }
 }

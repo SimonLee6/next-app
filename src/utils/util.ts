@@ -57,3 +57,26 @@ export function getSystem() {
   }
   return sys;
 }
+
+export function formatDay(timeStr: number) {
+  const oneMin = 1000 * 60;
+  const oneHour = oneMin * 60;
+  const oneDay = oneHour * 24;
+  const oneYear = oneDay * 365;
+  let diffTime;
+  let years;
+  let days;
+  let hours;
+  let min;
+  years = Math.floor(timeStr / oneYear);
+  diffTime = timeStr - years * oneYear;
+  days = Math.floor(diffTime / oneDay);
+  diffTime = diffTime - days * oneDay;
+  hours = Math.floor(diffTime / oneHour);
+  diffTime = diffTime - hours * oneHour;
+  min = Math.floor(diffTime / oneMin);
+  diffTime = diffTime - min * oneMin;
+  return ` ${years} 年 ${days} 天 ${hours} 小时 ${min} 分钟 ${Math.floor(
+    diffTime / 1000
+  )} 秒`;
+}
