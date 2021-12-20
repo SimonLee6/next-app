@@ -9,8 +9,6 @@ import "highlight.js/styles/atom-one-dark.css";
 import style from "./detail.module.scss";
 import BlogComments from "@com/blog-comments/blog-comments";
 
-
-
 import {
   QueryBlogDetail,
   QueryBlogComments,
@@ -66,8 +64,11 @@ function ArticleDetail(props: Props) {
       return hljs.highlightAuto(code).value;
     }
   })
-
-  let articleContent = marked(blogDetail.content)
+  let articleContent = ""
+  if (blogDetail.content) {
+    articleContent = marked(blogDetail.content)
+  }
+  
 
   return (
     <div className={style.blogDetailWrap}>

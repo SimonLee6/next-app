@@ -10,6 +10,13 @@ const apiConfig: ApiConfigItem[] = [
 
 const apiServiceObj = {} as ApiServiceObj;
 
+export const QueryRecommendBlogs = () => {
+  return axios({
+    url: `${baseUrl}/blogPage/getRecommendBlogs`,
+    method: "get"
+  })
+}
+
 export const QueryBlogDetail = (blogId: any) => {
   return axios({
     url: `${baseUrl}/blogPage/getBlogDetail/${blogId}`,

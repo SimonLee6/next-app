@@ -5,7 +5,7 @@ import BlogContainer from "@layout/blog-container/blog-container";
 import styled  from "styled-components";
 import { Wrapper } from "@styledComponents";
 import BlogList from "@com/blog-list/blog-list"
-import ArticleApi from "@api/article.api";
+import { QueryRecommendBlogs } from "@api/article.api";
 import { Props, ArticleData } from "@interface/interfaces"
 import MainHeader from "@/layout/mainPage/mainHeader/mainHeader";
 import style from "./index.module.scss"
@@ -40,12 +40,7 @@ export default function Home(props: Props) {
 
 export async function getServerSideProps() {
   const defaultData: ArticleData = {
-    data: [
-      {
-        title: "基于next.js的博客系统",
-
-      }
-    ],
+    data: [],
     pagingInfo: {
       size: 10,
       total: 0,
@@ -53,7 +48,8 @@ export async function getServerSideProps() {
     }
   }
   try {
-    let res = await ArticleApi.getArticleList()
+    
+    let res = await QueryRecommendBlogs()
     const articleData = res.data.data || defaultData;
     return {
       props: {

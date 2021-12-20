@@ -16,11 +16,12 @@ export default function BlogFooter(props: Props) {
   const timeRange = Date.now() - Date.parse(webInfo.start_time)
   const [webTime, updateWebTime] = useState(formatDay(timeRange))
 
-  setInterval(() => {
-    const timeRange = Date.now() - Date.parse(webInfo.start_time)
-    updateWebTime(formatDay(timeRange))
-  }, 1000)
-
+  if (typeof window !== "undefined") {
+    setInterval(() => {
+      const timeRange = Date.now() - Date.parse(webInfo.start_time)
+      updateWebTime(formatDay(timeRange))
+    }, 1000)
+  }
 
   return (
     <Layout.Footer className={style.footer}>
