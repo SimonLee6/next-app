@@ -60,7 +60,7 @@ function MainHeader(props: Props) {
   if (props.pageName === "blogDetail") {
     img = props.blogDetail.cover_image
   } else {
-    props.headerBgImg && (img = props.headerBgImg)
+    props.pageBgImage && (img = props.pageBgImage)
   }
   return (
     <div className={style.header}>

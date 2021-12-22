@@ -43,8 +43,8 @@ $font-orgen: #f08047;
     .websiteTime {
       width: 100%;
       text-align: center;
-      margin-top: 30px;
-      @include font(12px, $theme-color, 300);
+      transform: translateY(40px);
+      @include font(12px, $theme-color, 600);
     }
   }
 }

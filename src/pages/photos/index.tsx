@@ -44,7 +44,8 @@ export const getStaticProps = (ctx: any) => {
   return {
     props: {
       pageTitle: "随手拍",
-      pageSubTitle: "用照片记录生活"
+      pageSubTitle: "用照片记录生活",
+      pageBgImage: "https://blog-simon.oss-cn-beijing.aliyuncs.com/blog-image/photos.png"
     }
   }
 }

@@ -65,13 +65,15 @@ export const getStaticProps = async (ctx: any) => {
     return {
       props: {
         pageTitle: "留言板",
+        pageBgImage: "https://blog-simon.oss-cn-beijing.aliyuncs.com/blog-image/msgboard.png",
         // sysComments
       }
     }
   } catch (error) {
     return {
       props: {
-        pageTitle: "留言板"
+        pageTitle: "留言板",
+        pageBgImage: "https://blog-simon.oss-cn-beijing.aliyuncs.com/blog-image/msgboard.png",
       }
     }
   }

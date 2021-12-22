@@ -71,7 +71,7 @@ export const getStaticProps = (ctx: any) => {
   return {
     props: {
       pageTitle: "关于我",
-
+      pageBgImage: "https://blog-simon.oss-cn-beijing.aliyuncs.com/blog-image/about.png"
     }
   }
 }

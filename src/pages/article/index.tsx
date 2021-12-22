@@ -48,14 +48,16 @@ export async function getStaticProps() {
     return {
       props: { 
         articleData,
-        pageTitle: "个人文章"
+        pageTitle: "个人文章",
+        pageBgImage: "https://blog-simon.oss-cn-beijing.aliyuncs.com/blog-image/articles.png"
       }
     }
   } catch (error) {
     return {
       props: { 
         articleData: defaultData,
-        pageTitle: "个人文章"
+        pageTitle: "个人文章",
+        pageBgImage: "https://blog-simon.oss-cn-beijing.aliyuncs.com/blog-image/articles.png"
       }
     }
   }
