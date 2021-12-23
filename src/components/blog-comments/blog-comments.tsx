@@ -16,8 +16,15 @@ type CommentsProps = {
 
 
 
+const DefaultComments = {
+  nick_name: "",
+  browser: "",
+  system: "",
+  location: "",
+  content: ""
+}
 
-const CommentItem = ({comments, type = "main"}) => {
+const CommentItem = ({comments = DefaultComments, type = "main"}) => {
   const IconStyle = {
     color: "#b3b3b3",
     fontSize: "15px"

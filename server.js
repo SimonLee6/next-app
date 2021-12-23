@@ -2,8 +2,10 @@
 const express = require("express")
 const next = require("next")
 const { createProxyMiddleware } = require("http-proxy-middleware");
-const port = parseInt(process.env.PORT, 10) || 8010
+const port = parseInt(process.env.PORT, 10) || 8099
 const dev = process.env.NODE_ENV !== "production"
+// process.env.NODE_ENV = "production"
+
 const app = next({ dev })
 const handle = app.getRequestHandler()
 

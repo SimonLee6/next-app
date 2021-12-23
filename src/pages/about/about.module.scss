@@ -13,13 +13,14 @@
     padding: 15px;
     .aboutTitle {
       @include font(18px, #000, bold);
+      margin-bottom: 15px;
     }
     .subTitle {
       @include font(15px, #000, bold);
     }
     p {
       @include font(14px, #000, 500);
-      margin-bottom: 6px;
+      margin-bottom: 15px;
     }
     .aboutCard {
       margin-bottom: 10px;

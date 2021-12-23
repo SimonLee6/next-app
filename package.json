@@ -16,7 +16,9 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start:linux": "NODE_ENV=production node server.js",
+    "start": "set NODE_ENV=production && node server.js",
+    "linux": "pm2 start server.js --name blogPage --watch"
   },
   "devDependencies": {
     "@types/node": "^14.14.22",

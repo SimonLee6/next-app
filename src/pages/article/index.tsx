@@ -33,7 +33,7 @@ export default function BlogArticle(props: Props) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const defaultData: ArticleData = {
     data: [],
     pagingInfo: {

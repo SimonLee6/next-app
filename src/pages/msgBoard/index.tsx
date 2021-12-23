@@ -57,16 +57,16 @@ export default function BlogMsgBoard(props: Props) {
   )
 }
 
-export const getStaticProps = async (ctx: any) => {
+export const getServerSideProps = async (ctx: any) => {
 
   try {
-    // let res = await getSysComments()
-    // const sysComments = res.data.data
+    let res = await QuerySysComments()
+    const sysComments = res.data.data
     return {
       props: {
         pageTitle: "留言板",
         pageBgImage: "https://blog-simon.oss-cn-beijing.aliyuncs.com/blog-image/msgboard.png",
-        // sysComments
+        sysComments
       }
     }
   } catch (error) {

@@ -39,6 +39,10 @@ function MyApp({ Component, pageProps, webInfo }) {
 }
 
 MyApp.getInitialProps = async (appContext) => {
+  const defaultWebInfo = {
+    blog_count: 0,
+
+  }
   try {
     let res = await QueryWebInfo()
 
@@ -47,10 +51,12 @@ MyApp.getInitialProps = async (appContext) => {
     console.log(res.data.data)
     return {
       ...appProps,
-      webInfo: res.data.data
+      webInfo: res.data.data || defaultWebInfo
     }
   } catch (error) {
-    return {}
+    return {
+      webInfo: defaultWebInfo
+    }
   }
 }
 
